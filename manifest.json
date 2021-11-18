@@ -1,0 +1,32 @@
+{
+    "name": "demo",
+	"description" : "Hello world demo",
+    "version": "1.0",
+    "manifest_version": 2,
+	"icons":{
+		"16": "img/icon.png",
+		"48": "img/icon.png",
+		"128": "img/icon.png"
+	},
+	"browser_action": 
+	{
+		"default_icon": "img/icon.png",
+		"default_title": "啦啦啦啦",
+		"default_popup": "demo.html"
+	},
+    "content_scripts": [
+        { 
+			// "matches": ["<all_urls>"], 
+			"matches":["https://www.baidu.com/*"],
+			"js": ["index.js"]
+		}
+    ],
+	"permissions":[
+		"webRequest", // web请求
+		"webRequestBlocking",
+		"notifications",
+		"storage", // 插件本地存储
+		"http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+		"https://*/*" // 可以通过executeScript或者insertCSS访问的网站
+	]
+}
